@@ -1,0 +1,10 @@
+ApproveLeaveDialogData #class
+aavn.leave.request.ApproveLeaveDialog #namespace
+email String #field
+email PERSISTENT #fieldModifier
+fullName String #field
+fullName PERSISTENT #fieldModifier
+leaveRequest aavn.leave.request.LeaveRequest #field
+leaveRequest PERSISTENT #fieldModifier
+leaveRequests java.util.List<leave.request.model.PersonalTask> #field
+leaveRequests PERSISTENT #fieldModifier

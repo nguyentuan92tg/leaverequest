@@ -1,0 +1,10 @@
+AccountHolder #class
+aavn.leave.request #namespace
+userName String #field
+userName PERSISTENT #fieldModifier
+password String #field
+password PERSISTENT #fieldModifier
+email String #field
+email PERSISTENT #fieldModifier
+fullName String #field
+fullName PERSISTENT #fieldModifier

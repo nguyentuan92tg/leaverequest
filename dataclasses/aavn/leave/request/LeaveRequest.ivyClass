@@ -1,0 +1,10 @@
+LeaveRequest #class
+aavn.leave.request #namespace
+startDay Date #field
+startDay PERSISTENT #fieldModifier
+endDay Date #field
+endDay PERSISTENT #fieldModifier
+style String #field
+style PERSISTENT #fieldModifier
+requestId String #field
+requestId PERSISTENT #fieldModifier

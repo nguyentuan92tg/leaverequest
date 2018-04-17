@@ -1,0 +1,6 @@
+LeaveRequestInformation #class
+aavn.leave.request #namespace
+accountHolder aavn.leave.request.AccountHolder #field
+accountHolder PERSISTENT #fieldModifier
+leaveRequest aavn.leave.request.LeaveRequest #field
+leaveRequest PERSISTENT #fieldModifier

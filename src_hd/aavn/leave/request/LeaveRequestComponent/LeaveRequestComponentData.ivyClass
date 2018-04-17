@@ -1,0 +1,6 @@
+LeaveRequestComponentData #class
+aavn.leave.request.LeaveRequestComponent #namespace
+leaveRequest aavn.leave.request.LeaveRequest #field
+leaveRequest PERSISTENT #fieldModifier
+disable Boolean #field
+disable PERSISTENT #fieldModifier

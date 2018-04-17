@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<userConfig>
+    <user>
+        <username>John</username>
+        <fullName>Nguyen Hong Tuan</fullName>
+        <emailAddress>nguyentuan92tg@gmail.com</emailAddress>
+        <role>Perior</role>
+    </user>
+    <user>
+        <username>Mary</username>
+        <fullName>Nguyen Tuan Tuan</fullName>
+        <emailAddress>tuan.nguyenhong@axonactive.com</emailAddress>
+        <role>Employee</role>
+    </user>
+</userConfig>

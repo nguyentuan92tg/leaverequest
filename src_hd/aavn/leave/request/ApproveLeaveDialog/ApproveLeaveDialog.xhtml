@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">ApproveLeaveDialog</ui:define>
+		<ui:define name="content">
+		
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+						<div class="panel panel-default">
+							<ul class="list-group">
+								<ui:repeat var="task" value="#{data.leaveRequests}">
+									<li class="list-group-item"><p:commandLink value="#{task.name}" actionListener="#{logic.getInformationRequestById(task.requestId)}"/></li>
+								</ui:repeat>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+						<h:form id="form">
+							<ic:aavn.leave.request.LeaveRequestComponent leaveRequest="#{data.leaveRequest}" isDisable= "true" id ="approveLeaveRequest"/>
+							<br />
+									
+							<p:commandButton actionListener="#{logic.close}" value="Approve" update="form" icon="ui-icon-check">
+								<p:confirm header="Confirmation" message="Do you want to approve this request?" />
+							</p:commandButton>
+		
+							<p:confirmDialog global="true">
+								<p:commandButton value="Yes" styleClass="ui-confirmdialog-yes" actionListener="#{logic.close}" type="button" icon="ui-icon-check"/>
+								<p:commandButton value="No" styleClass="ui-confirmdialog-no" type="button" icon="ui-icon-close" />
+							</p:confirmDialog>
+						</h:form>
+					</div>
+				</div>
+			</div>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

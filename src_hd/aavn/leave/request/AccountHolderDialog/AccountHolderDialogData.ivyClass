@@ -1,0 +1,4 @@
+AccountHolderDialogData #class
+aavn.leave.request.AccountHolderDialog #namespace
+accountHolder aavn.leave.request.AccountHolder #field
+accountHolder PERSISTENT #fieldModifier
