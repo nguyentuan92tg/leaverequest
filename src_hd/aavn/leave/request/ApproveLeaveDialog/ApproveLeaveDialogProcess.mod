@@ -16,9 +16,6 @@ As0 @TextInP .xml .xml #zField
 As0 @TextInP .responsibility .responsibility #zField
 As0 @RichDialogInitStart f0 '' #zField
 As0 @RichDialogProcessEnd f1 '' #zField
-As0 @RichDialogProcessStart f3 '' #zField
-As0 @RichDialogEnd f4 '' #zField
-As0 @PushWFArc f5 '' #zField
 As0 @GridStep f6 '' #zField
 As0 @PushWFArc f2 '' #zField
 As0 @PushWFArc f7 '' #zField
@@ -27,6 +24,9 @@ As0 @RichDialogMethodStart f8 '' #zField
 As0 @GridStep f11 '' #zField
 As0 @PushWFArc f10 '' #zField
 As0 @PushWFArc f12 '' #zField
+As0 @RichDialogProcessStart f3 '' #zField
+As0 @PushWFArc f5 '' #zField
+As0 @RichDialogEnd f4 '' #zField
 >Proto As0 As0 ApproveLeaveDialogProcess #zField
 As0 f0 guid 162CDE395BF7A2DA #txt
 As0 f0 type aavn.leave.request.ApproveLeaveDialog.ApproveLeaveDialogData #txt
@@ -57,27 +57,6 @@ As0 f0 @|RichDialogInitStartIcon #fIcon
 As0 f1 type aavn.leave.request.ApproveLeaveDialog.ApproveLeaveDialogData #txt
 As0 f1 379 51 26 26 0 12 #rect
 As0 f1 @|RichDialogProcessEndIcon #fIcon
-As0 f3 guid 162CDE395D5FCF15 #txt
-As0 f3 type aavn.leave.request.ApproveLeaveDialog.ApproveLeaveDialogData #txt
-As0 f3 actionDecl 'aavn.leave.request.ApproveLeaveDialog.ApproveLeaveDialogData out;
-' #txt
-As0 f3 actionTable 'out=in;
-' #txt
-As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>close</name>
-    </language>
-</elementInfo>
-' #txt
-As0 f3 83 147 26 26 -15 12 #rect
-As0 f3 @|RichDialogProcessStartIcon #fIcon
-As0 f4 type aavn.leave.request.ApproveLeaveDialog.ApproveLeaveDialogData #txt
-As0 f4 guid 162CDE395D5ABA89 #txt
-As0 f4 211 147 26 26 0 12 #rect
-As0 f4 @|RichDialogEndIcon #fIcon
-As0 f5 expr out #txt
-As0 f5 109 160 211 160 #arcP
 As0 f6 actionDecl 'aavn.leave.request.ApproveLeaveDialog.ApproveLeaveDialogData out;
 ' #txt
 As0 f6 actionTable 'out=in;
@@ -132,6 +111,27 @@ As0 f10 expr out #txt
 As0 f10 109 256 168 256 #arcP
 As0 f12 expr out #txt
 As0 f12 280 256 395 256 #arcP
+As0 f3 guid 162CDE395D5FCF15 #txt
+As0 f3 type aavn.leave.request.ApproveLeaveDialog.ApproveLeaveDialogData #txt
+As0 f3 actionDecl 'aavn.leave.request.ApproveLeaveDialog.ApproveLeaveDialogData out;
+' #txt
+As0 f3 actionTable 'out=in;
+' #txt
+As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>close</name>
+    </language>
+</elementInfo>
+' #txt
+As0 f3 83 147 26 26 -15 12 #rect
+As0 f3 @|RichDialogProcessStartIcon #fIcon
+As0 f5 expr out #txt
+As0 f5 109 160 211 160 #arcP
+As0 f4 type aavn.leave.request.ApproveLeaveDialog.ApproveLeaveDialogData #txt
+As0 f4 guid 162CDE395D5ABA89 #txt
+As0 f4 211 147 26 26 0 12 #rect
+As0 f4 @|RichDialogEndIcon #fIcon
 >Proto As0 .type aavn.leave.request.ApproveLeaveDialog.ApproveLeaveDialogData #txt
 >Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
