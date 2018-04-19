@@ -7,7 +7,7 @@ package aavn.leave.request.ApproveLeaveDialog;
 public class ApproveLeaveDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 3510070800920010935L;
+  private static final long serialVersionUID = 7432816815441599654L;
 
   private java.lang.String email;
 
@@ -69,13 +69,13 @@ public class ApproveLeaveDialogData extends ch.ivyteam.ivy.scripting.objects.Com
     leaveRequest = _leaveRequest;
   }
 
-  private java.util.List<leave.request.model.PersonalTask> leaveRequests;
+  private java.util.List<ch.ivyteam.ivy.workflow.ITask> leaveRequests;
 
   /**
    * Gets the field leaveRequests.
    * @return the value of the field leaveRequests; may be null.
    */
-  public java.util.List<leave.request.model.PersonalTask> getLeaveRequests()
+  public java.util.List<ch.ivyteam.ivy.workflow.ITask> getLeaveRequests()
   {
     return leaveRequests;
   }
@@ -84,9 +84,49 @@ public class ApproveLeaveDialogData extends ch.ivyteam.ivy.scripting.objects.Com
    * Sets the field leaveRequests.
    * @param _leaveRequests the new value of the field leaveRequests.
    */
-  public void setLeaveRequests(java.util.List<leave.request.model.PersonalTask> _leaveRequests)
+  public void setLeaveRequests(java.util.List<ch.ivyteam.ivy.workflow.ITask> _leaveRequests)
   {
     leaveRequests = _leaveRequests;
+  }
+
+  private java.lang.Boolean isApprove;
+
+  /**
+   * Gets the field isApprove.
+   * @return the value of the field isApprove; may be null.
+   */
+  public java.lang.Boolean getIsApprove()
+  {
+    return isApprove;
+  }
+
+  /**
+   * Sets the field isApprove.
+   * @param _isApprove the new value of the field isApprove.
+   */
+  public void setIsApprove(java.lang.Boolean _isApprove)
+  {
+    isApprove = _isApprove;
+  }
+
+  private ch.ivyteam.ivy.workflow.ITask currentTask;
+
+  /**
+   * Gets the field currentTask.
+   * @return the value of the field currentTask; may be null.
+   */
+  public ch.ivyteam.ivy.workflow.ITask getCurrentTask()
+  {
+    return currentTask;
+  }
+
+  /**
+   * Sets the field currentTask.
+   * @param _currentTask the new value of the field currentTask.
+   */
+  public void setCurrentTask(ch.ivyteam.ivy.workflow.ITask _currentTask)
+  {
+    currentTask = _currentTask;
   }
 
 }

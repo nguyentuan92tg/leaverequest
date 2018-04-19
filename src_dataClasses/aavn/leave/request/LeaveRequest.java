@@ -7,7 +7,7 @@ package aavn.leave.request;
 public class LeaveRequest extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 1658977187384129962L;
+  private static final long serialVersionUID = 9189653686055631252L;
 
   private ch.ivyteam.ivy.scripting.objects.Date startDay;
 
@@ -87,6 +87,46 @@ public class LeaveRequest extends ch.ivyteam.ivy.scripting.objects.CompositeObje
   public void setRequestId(java.lang.String _requestId)
   {
     requestId = _requestId;
+  }
+
+  private java.lang.String fullName;
+
+  /**
+   * Gets the field fullName.
+   * @return the value of the field fullName; may be null.
+   */
+  public java.lang.String getFullName()
+  {
+    return fullName;
+  }
+
+  /**
+   * Sets the field fullName.
+   * @param _fullName the new value of the field fullName.
+   */
+  public void setFullName(java.lang.String _fullName)
+  {
+    fullName = _fullName;
+  }
+
+  private java.lang.String email;
+
+  /**
+   * Gets the field email.
+   * @return the value of the field email; may be null.
+   */
+  public java.lang.String getEmail()
+  {
+    return email;
+  }
+
+  /**
+   * Sets the field email.
+   * @param _email the new value of the field email.
+   */
+  public void setEmail(java.lang.String _email)
+  {
+    email = _email;
   }
 
 }

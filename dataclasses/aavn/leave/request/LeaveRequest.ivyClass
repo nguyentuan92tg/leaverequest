@@ -8,3 +8,7 @@ style String #field
 style PERSISTENT #fieldModifier
 requestId String #field
 requestId PERSISTENT #fieldModifier
+fullName String #field
+fullName PERSISTENT #fieldModifier
+email String #field
+email PERSISTENT #fieldModifier

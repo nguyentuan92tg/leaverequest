@@ -1,5 +1,6 @@
 package leave.request.model;
 
+
 public class PersonalTask {
 	private String name;
 	private String requestId;
@@ -23,7 +24,6 @@ public class PersonalTask {
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
 	}
-	
 	
 	
 	

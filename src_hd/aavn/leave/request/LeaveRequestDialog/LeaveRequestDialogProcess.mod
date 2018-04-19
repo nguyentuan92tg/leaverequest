@@ -58,10 +58,12 @@ Ls0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>close</name>
+        <nameStyle>5,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f3 83 147 26 26 -15 12 #rect
+Ls0 f3 83 147 26 26 -15 15 #rect
 Ls0 f3 @|RichDialogProcessStartIcon #fIcon
 Ls0 f4 type aavn.leave.request.LeaveRequestDialog.LeaveRequestDialogData #txt
 Ls0 f4 guid 162CD55BCD732526 #txt

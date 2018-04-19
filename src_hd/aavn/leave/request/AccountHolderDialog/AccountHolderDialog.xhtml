@@ -16,13 +16,15 @@
 						<p:messages></p:messages>
 					</f:facet>
 
-					<p:outputLabel  styleClass="input-label"  for="accountHolderUserName" value="User Name: " />
-					<p:inputText id="accountHolderUserName" value="#{data.accountHolder.userName}"></p:inputText>
-
-					<p:outputLabel styleClass="input-label" for="accountHolderPassword" value="Password: " />
-					<p:inputText id="accountHolderPassword" value="#{data.accountHolder.password}"></p:inputText>
-					
-					<br />
+					<p:outputLabel  styleClass="input-label"  for="accountHolderUserName" value="User Name: "/>
+					<p:inputText id="accountHolderUserName" value="#{data.accountHolder.userName}" required="true" requiredMessage="#{ivy.cms.co('/Project/ThisFieldIsRequired')}"/>
+					<br/>
+					<h:message for="accountHolderUserName"/>
+					<p:outputLabel styleClass="input-label" for="accountHolderPassword" value="Password: "/>
+					<p:password id="accountHolderPassword" value="#{data.accountHolder.password}" required="true" requiredMessage="#{ivy.cms.co('/Project/ThisFieldIsRequired')}"/>
+					<br/>
+					<h:message for="accountHolderPassword"/>
+					<br/>
 					<p:commandButton actionListener="#{logic.submit}" value="Login"
 						update="form" icon="ui-icon-check" />
 				</h:panelGrid></h:form>

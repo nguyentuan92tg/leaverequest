@@ -2,12 +2,12 @@
 <richDialogDescriptor>
     <autoScreenshot>true</autoScreenshot>
     <method>
-        <name>getInformationRequestById</name>
+        <name>getInformationRequest</name>
         <description></description>
         <inputParameter>
-            <name>requestId</name>
+            <name>task</name>
             <description></description>
-            <parameterType>String</parameterType>
+            <parameterType>ch.ivyteam.ivy.workflow.ITask</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
         <outputParameter>

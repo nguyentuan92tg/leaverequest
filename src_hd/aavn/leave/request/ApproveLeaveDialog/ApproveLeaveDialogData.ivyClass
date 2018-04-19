@@ -6,5 +6,9 @@ fullName String #field
 fullName PERSISTENT #fieldModifier
 leaveRequest aavn.leave.request.LeaveRequest #field
 leaveRequest PERSISTENT #fieldModifier
-leaveRequests java.util.List<leave.request.model.PersonalTask> #field
+leaveRequests java.util.List<ch.ivyteam.ivy.workflow.ITask> #field
 leaveRequests PERSISTENT #fieldModifier
+isApprove Boolean #field
+isApprove PERSISTENT #fieldModifier
+currentTask ch.ivyteam.ivy.workflow.ITask #field
+currentTask PERSISTENT #fieldModifier

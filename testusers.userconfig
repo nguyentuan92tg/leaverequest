@@ -2,12 +2,14 @@
 <userConfig>
     <user>
         <username>John</username>
+        <password>john</password>
         <fullName>Nguyen Hong Tuan</fullName>
         <emailAddress>nguyentuan92tg@gmail.com</emailAddress>
-        <role>Perior</role>
+        <role>Superior</role>
     </user>
     <user>
         <username>Mary</username>
+        <password>mary</password>
         <fullName>Nguyen Tuan Tuan</fullName>
         <emailAddress>tuan.nguyenhong@axonactive.com</emailAddress>
         <role>Employee</role>

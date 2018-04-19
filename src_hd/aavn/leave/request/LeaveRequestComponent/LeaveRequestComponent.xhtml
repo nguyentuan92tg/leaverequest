@@ -9,10 +9,11 @@
       xmlns:pm="http://primefaces.org/mobile">
       
   <cc:interface componentType="IvyComponent">
+  <cc:attribute name="leaveRequestComponent"></cc:attribute>
   </cc:interface>
   
   <cc:implementation>
-  	<h:outputText>#{cc.attrs.label}</h:outputText>
+  	
   	<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top" id="leaveRequestGrid">
   		 <!-- fields needs to be inside a h:form tag (which is normaly added by the outer page) -->
   		<p:outputLabel value="Employee Information"/>
@@ -25,16 +26,15 @@
 		<p:outputLabel value="Leave Request"/>
 		<br/>
     	<p:outputLabel for="leaveRequestStartDay" value="Start Day"/>
-    	<p:calendar id="leaveRequestStartDay" value="#{data.leaveRequest.startDay}" pattern="dd-MM-yyyy" size="10" disabled="#{cc.attributes.isDisable}">
+    	<p:calendar id="leaveRequestStartDay" value="#{cc.attrs.leaveRequestComponent.startDay}" pattern="dd-MM-yyyy" size="10" disabled="#{cc.attributes.isDisable}">
     		<f:convertDateTime pattern="dd-MM-yyyy" />
     	</p:calendar>
-    	
     	<p:outputLabel for="leaveRequestEndDay" value="End Day"/>
-    	<p:calendar id="leaveRequestEndDay" value="#{data.leaveRequest.endDay}" pattern="dd-MM-yyyy"  size="10" disabled="#{cc.attributes.isDisable}">
-    		<f:convertDateTime pattern="dd-MM-yyyy" />
+    	<p:calendar id="leaveRequestEndDay" value="#{cc.attrs.leaveRequestComponent.endDay}" pattern="dd-MM-yyyy"  size="10" disabled="#{cc.attributes.isDisable}">
+    		<f:convertDateTime pattern="dd-MM-yyyy"/>
     	</p:calendar>
     	<p:outputLabel>Type:</p:outputLabel>
-		<p:selectOneRadio id="leaveRequestStyle" layout="grid" columns="1" required="true" value="#{data.leaveRequest.style}" disabled="#{cc.attributes.isDisable}">
+		<p:selectOneRadio id="leaveRequestStyle" layout="grid" columns="1" required="true" value="#{cc.attrs.leaveRequestComponent.style}" disabled="#{cc.attributes.isDisable}">
 			<f:selectItem itemLabel="Working holidday" itemValue="WORKING_HOLIDAY"/>
 			<f:selectItem itemLabel="Marriage" itemValue="MARRIAGE"/>
 			<f:selectItem itemLabel="Sickness" itemValue="SICKNESS"/>

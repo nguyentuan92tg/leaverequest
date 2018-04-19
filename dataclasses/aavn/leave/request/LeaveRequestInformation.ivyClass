@@ -4,3 +4,7 @@ accountHolder aavn.leave.request.AccountHolder #field
 accountHolder PERSISTENT #fieldModifier
 leaveRequest aavn.leave.request.LeaveRequest #field
 leaveRequest PERSISTENT #fieldModifier
+isApprove Boolean #field
+isApprove PERSISTENT #fieldModifier
+taskId Integer #field
+taskId PERSISTENT #fieldModifier
