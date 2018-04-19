@@ -1,6 +1,7 @@
 package leave.request.services;
 
 import java.util.List;
+import java.util.Objects;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.workflow.ITask;
@@ -13,16 +14,17 @@ public class TaskQueryService {
 				.orderBy().startTimestamp().ascending();
 		return Ivy.wf().getTaskQueryExecutor().getResults(query, 0, -1);
 	}
-	/*public static List<PersonalTask> getPersonalTasks(){
-		List<PersonalTask> personalTasks =  getAllActiveTask().get(0).getWorkerSession().resumeTask()
-				.stream()
-				.filter(Objects::nonNull)
-				.map(task -> new PersonalTask(task.getName(), task.getCustomVarCharField1()))
-				.collect(Collectors.toList());
-		return personalTasks;
-	}*/
+	public static String getTask(String requestId){
+		return getAllActiveTask().stream()
+		.filter(Objects::nonNull)
+		.filter(task -> task.getCustomVarCharField1().equalsIgnoreCase(requestId))
+		.map(task -> String.valueOf(task.getId()))
+		.findFirst().orElse(null);
+	}
 	
-	/*public static void resume(long id){
-		I
-	}*/
+	public static void resume(ITask task){
+		Ivy.session().resumeTask(task.getId());
+		Ivy.session().resetTask(task);
+	}
+
 }

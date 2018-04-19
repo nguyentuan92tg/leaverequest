@@ -6,5 +6,5 @@ leaveRequest aavn.leave.request.LeaveRequest #field
 leaveRequest PERSISTENT #fieldModifier
 isApprove Boolean #field
 isApprove PERSISTENT #fieldModifier
-taskId Integer #field
+taskId String #field
 taskId PERSISTENT #fieldModifier

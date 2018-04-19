@@ -1,5 +1,5 @@
-ApproveLeaveDialogData #class
-aavn.leave.request.ApproveLeaveDialog #namespace
+ManageLeaveRequestDialogData #class
+aavn.leave.request.ManageLeaveRequestDialog #namespace
 email String #field
 email PERSISTENT #fieldModifier
 fullName String #field

@@ -1,5 +1,7 @@
 package leave.request.services;
 
+import java.util.Optional;
+
 import aavn.leave.request.LeaveRequest;
 import ch.ivyteam.ivy.environment.Ivy;
 
@@ -11,7 +13,9 @@ public class LeaveRequestRepoService {
 	
 	public static LeaveRequest getLeaveRequest(String id){
 		Ivy.log().info("find leave request" , id);
-		return Ivy.repo().find(id, LeaveRequest.class);
+		LeaveRequest leaveRequest =  Ivy.repo().find(id, LeaveRequest.class);
+		Optional.ofNullable(leaveRequest).ifPresent(l -> l.setRequestId(id));
+		return leaveRequest;
 	}
 	
 	/*public static List<LeaveRequest> getLeaveRequestBy(){

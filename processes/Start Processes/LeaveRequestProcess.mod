@@ -31,7 +31,6 @@ Ls0 @PushWFArc f9 '' #zField
 Ls0 @EMail f25 '' #zField
 Ls0 @PushWFArc f14 '' #zField
 Ls0 @Alternative f18 '' #zField
-Ls0 @PushWFArc f20 '' #zField
 Ls0 @PushWFArc f5 '' #zField
 Ls0 @PushWFArc f21 '' #zField
 Ls0 @UserTask f12 '' #zField
@@ -43,6 +42,10 @@ Ls0 @GridStep f28 '' #zField
 Ls0 @PushWFArc f29 '' #zField
 Ls0 @PushWFArc f30 '' #zField
 Ls0 @PushWFArc f24 '' #zField
+Ls0 @PushWFArc f31 '' #zField
+Ls0 @PushWFArc f20 '' #zField
+Ls0 @PushWFArc f33 '' #zField
+Ls0 @GridStep f32 '' #zField
 >Proto Ls0 Ls0 LeaveRequestProcess #zField
 Ls0 f0 outLink start.ivp #txt
 Ls0 f0 type aavn.leave.request.LeaveRequestInformation #txt
@@ -120,7 +123,7 @@ Ls0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ls0 f7 544 234 144 44 -69 -8 #rect
 Ls0 f7 @|RichDialogIcon #fIcon
 Ls0 f17 type aavn.leave.request.LeaveRequestInformation #txt
-Ls0 f17 1281 425 30 30 0 15 #rect
+Ls0 f17 1377 425 30 30 0 15 #rect
 Ls0 f17 @|EndIcon #fIcon
 Ls0 f19 actionDecl 'aavn.leave.request.LeaveRequestInformation out;
 ' #txt
@@ -136,11 +139,11 @@ Ls0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f19 744 418 160 44 -75 -8 #rect
+Ls0 f19 888 418 160 44 -75 -8 #rect
 Ls0 f19 @|StepIcon #fIcon
 Ls0 f15 targetWindow NEW #txt
 Ls0 f15 targetDisplay TOP #txt
-Ls0 f15 richDialogId aavn.leave.request.ApproveLeaveDialog #txt
+Ls0 f15 richDialogId aavn.leave.request.ManageLeaveRequestDialog #txt
 Ls0 f15 startMethod start(String,String,aavn.leave.request.LeaveRequest) #txt
 Ls0 f15 type aavn.leave.request.LeaveRequestInformation #txt
 Ls0 f15 requestActionDecl '<String email, String fullName, aavn.leave.request.LeaveRequest leaveRequest> param;' #txt
@@ -167,7 +170,7 @@ Ls0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f15 544 418 128 44 -56 -8 #rect
+Ls0 f15 528 418 128 44 -56 -8 #rect
 Ls0 f15 @|RichDialogIcon #fIcon
 Ls0 f1 type aavn.leave.request.LeaveRequestInformation #txt
 Ls0 f1 448 80 32 32 0 16 #rect
@@ -176,11 +179,13 @@ Ls0 f10 actionDecl 'aavn.leave.request.LeaveRequestInformation out;
 ' #txt
 Ls0 f10 actionTable 'out=in;
 ' #txt
-Ls0 f10 actionCode 'import leave.request.services.LeaveRequestRepoService;
+Ls0 f10 actionCode 'import leave.request.services.TaskQueryService;
+import leave.request.services.LeaveRequestRepoService;
 in.leaveRequest.setFullName(ivy.session.getWorkflowContext().getSecurityContext().getCurrentSession().getSessionUser().getFullName());
 in.leaveRequest.setEmail(ivy.session.getWorkflowContext().getSecurityContext().getCurrentSession().getSessionUser().getEMailAddress());
 in.leaveRequest.requestId = LeaveRequestRepoService.save(in.leaveRequest);
-ivy.log.info(in.leaveRequest.requestId);' #txt
+in.taskId = TaskQueryService.getTask(in.leaveRequest.requestId);
+ivy.log.info(in.taskId);' #txt
 Ls0 f10 security system #txt
 Ls0 f10 type aavn.leave.request.LeaveRequestInformation #txt
 Ls0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -192,7 +197,7 @@ Ls0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f10 928 234 160 44 -71 -8 #rect
+Ls0 f10 944 234 160 44 -71 -8 #rect
 Ls0 f10 @|StepIcon #fIcon
 Ls0 f22 expr in #txt
 Ls0 f22 outCond leave.request.authen.AccountHolderAuthen.hasAccessPermission("Employee") #txt
@@ -236,7 +241,7 @@ Ls0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f8 464 112 544 440 #arcP
+Ls0 f8 464 112 528 440 #arcP
 Ls0 f8 1 464 440 #addKink
 Ls0 f8 0 0.34146341463414637 38 0 #arcLabel
 Ls0 f3 expr out #txt
@@ -244,24 +249,22 @@ Ls0 f3 368 96 448 96 #arcP
 Ls0 f6 expr out #txt
 Ls0 f6 688 256 752 256 #arcP
 Ls0 f9 expr out #txt
-Ls0 f9 880 256 928 256 #arcP
+Ls0 f9 880 256 944 256 #arcP
 Ls0 f25 beanConfig '"{/emailSubject ""Request is successfull""/emailFrom ""nguyentuan92tg@gmail.com""/emailReplyTo """"/emailTo ""tuan.nguyenhong@axonactive.com""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage """"/emailAttachments * }"' #txt
 Ls0 f25 type aavn.leave.request.LeaveRequestInformation #txt
 Ls0 f25 timeout 0 #txt
-Ls0 f25 1088 418 112 44 0 -8 #rect
+Ls0 f25 1200 418 112 44 0 -8 #rect
 Ls0 f25 @|EMailIcon #fIcon
 Ls0 f14 expr out #txt
-Ls0 f14 1200 440 1281 440 #arcP
+Ls0 f14 1312 440 1377 440 #arcP
 Ls0 f18 type aavn.leave.request.LeaveRequestInformation #txt
-Ls0 f18 981 425 32 32 0 16 #rect
+Ls0 f18 1117 425 32 32 0 16 #rect
 Ls0 f18 @|AlternativeIcon #fIcon
-Ls0 f20 expr out #txt
-Ls0 f20 672 440 744 440 #arcP
 Ls0 f5 expr out #txt
-Ls0 f5 904 440 981 441 #arcP
+Ls0 f5 1048 440 1117 441 #arcP
 Ls0 f21 expr in #txt
-Ls0 f21 1013 441 1088 440 #arcP
-Ls0 f12 richDialogId aavn.leave.request.ApproveLeaveDialog #txt
+Ls0 f21 1149 441 1200 440 #arcP
+Ls0 f12 richDialogId aavn.leave.request.ManageLeaveRequestDialog #txt
 Ls0 f12 startMethod start(String,String,aavn.leave.request.LeaveRequest) #txt
 Ls0 f12 requestActionDecl '<String email, String fullName, aavn.leave.request.LeaveRequest leaveRequest> param;' #txt
 Ls0 f12 responseActionDecl 'aavn.leave.request.LeaveRequestInformation out;
@@ -284,24 +287,24 @@ Ls0 f12 @|UserTaskIcon #fIcon
 Ls0 f16 expr out #txt
 Ls0 f16 type aavn.leave.request.LeaveRequestInformation #txt
 Ls0 f16 var in1 #txt
-Ls0 f16 1088 256 1200 256 #arcP
+Ls0 f16 1104 256 1200 256 #arcP
 Ls0 f13 actionDecl 'aavn.leave.request.LeaveRequestInformation out;
 ' #txt
 Ls0 f13 actionTable 'out=in;
 ' #txt
 Ls0 f13 type aavn.leave.request.LeaveRequestInformation #txt
-Ls0 f13 signalCode approve:request:331 #txt
+Ls0 f13 signalCode approve:request:<%=in.leaveRequest.requestId%> #txt
 Ls0 f13 attachedToRef 162CD50624A35C02-f12 #txt
 Ls0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>approve:request:333</name>
-        <nameStyle>19,5,7
+        <name>approve:request</name>
+        <nameStyle>15,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f13 1273 273 30 30 -56 17 #rect
+Ls0 f13 1273 273 30 30 -44 17 #rect
 Ls0 f13 @|SignalBoundaryEventIcon #fIcon
 Ls0 f26 outLink start2.ivp #txt
 Ls0 f26 type aavn.leave.request.LeaveRequestInformation #txt
@@ -342,6 +345,25 @@ Ls0 f29 1263 608 1320 608 #arcP
 Ls0 f30 expr out #txt
 Ls0 f30 1432 608 1521 608 #arcP
 Ls0 f24 1303 288 1393 288 #arcP
+Ls0 f31 expr data #txt
+Ls0 f31 outCond ivp=="TaskA.ivp" #txt
+Ls0 f31 1312 256 1393 284 #arcP
+Ls0 f20 expr out #txt
+Ls0 f20 824 440 888 440 #arcP
+Ls0 f33 expr out #txt
+Ls0 f33 656 440 712 440 #arcP
+Ls0 f32 actionDecl 'aavn.leave.request.LeaveRequestInformation out;
+' #txt
+Ls0 f32 actionTable 'out=in;
+' #txt
+Ls0 f32 actionCode 'import ch.ivyteam.ivy.process.model.value.SignalCode;
+ivy.log.info(in.leaveRequest.requestId);
+SignalCode code  = new SignalCode("approve:request"+in.leaveRequest.requestId);
+ivy.wf.signals().send(code);' #txt
+Ls0 f32 security system #txt
+Ls0 f32 type aavn.leave.request.LeaveRequestInformation #txt
+Ls0 f32 712 418 112 44 0 -8 #rect
+Ls0 f32 @|StepIcon #fIcon
 >Proto Ls0 .type aavn.leave.request.LeaveRequestInformation #txt
 >Proto Ls0 .processKind NORMAL #txt
 >Proto Ls0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -382,8 +404,6 @@ Ls0 f23 mainOut f9 tail #connect
 Ls0 f9 head f10 mainIn #connect
 Ls0 f25 mainOut f14 tail #connect
 Ls0 f14 head f17 mainIn #connect
-Ls0 f15 mainOut f20 tail #connect
-Ls0 f20 head f19 mainIn #connect
 Ls0 f19 mainOut f5 tail #connect
 Ls0 f5 head f18 in #connect
 Ls0 f18 out f21 tail #connect
@@ -396,3 +416,9 @@ Ls0 f28 mainOut f30 tail #connect
 Ls0 f30 head f27 mainIn #connect
 Ls0 f13 mainOut f24 tail #connect
 Ls0 f24 head f11 mainIn #connect
+Ls0 f12 out f31 tail #connect
+Ls0 f31 head f11 mainIn #connect
+Ls0 f15 mainOut f33 tail #connect
+Ls0 f33 head f32 mainIn #connect
+Ls0 f32 mainOut f20 tail #connect
+Ls0 f20 head f19 mainIn #connect

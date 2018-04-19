@@ -7,7 +7,7 @@ package aavn.leave.request;
 public class LeaveRequestInformation extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 8020159947376520958L;
+  private static final long serialVersionUID = -8838333571351351554L;
 
   private aavn.leave.request.AccountHolder accountHolder;
 
@@ -69,13 +69,13 @@ public class LeaveRequestInformation extends ch.ivyteam.ivy.scripting.objects.Co
     isApprove = _isApprove;
   }
 
-  private java.lang.Integer taskId;
+  private java.lang.String taskId;
 
   /**
    * Gets the field taskId.
    * @return the value of the field taskId; may be null.
    */
-  public java.lang.Integer getTaskId()
+  public java.lang.String getTaskId()
   {
     return taskId;
   }
@@ -84,7 +84,7 @@ public class LeaveRequestInformation extends ch.ivyteam.ivy.scripting.objects.Co
    * Sets the field taskId.
    * @param _taskId the new value of the field taskId.
    */
-  public void setTaskId(java.lang.Integer _taskId)
+  public void setTaskId(java.lang.String _taskId)
   {
     taskId = _taskId;
   }
