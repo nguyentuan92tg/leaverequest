@@ -11,6 +11,10 @@ public class LeaveRequestRepoService {
 		return Ivy.repo().save(leaveRequest).getId();
 	}
 	
+	public static void delete(LeaveRequest leaveRequest){
+		Ivy.repo().delete(leaveRequest);
+	}
+	
 	public static LeaveRequest getLeaveRequest(String id){
 		Ivy.log().info("find leave request" , id);
 		LeaveRequest leaveRequest =  Ivy.repo().find(id, LeaveRequest.class);

@@ -8,19 +8,9 @@
 	xmlns:pm="http://primefaces.org/mobile">
 <h:body>
 	<ui:composition template="/layouts/basic.xhtml">
-		<ui:define name="title">LeaveRequestDialog</ui:define>
+		<ui:define name="title">ApproveLeaveDialog</ui:define>
 		<ui:define name="content">
-			
-			<h:form id="form">
-					<f:facet name="header">
-						<p:messages></p:messages>
-					</f:facet>
-					
-					<ic:aavn.leave.request.LeaveRequestComponent leaveRequestComponent="#{data.leaveRequest}" isDisable= "false"/>
-					<br />
-					<p:commandButton actionListener="#{logic.request}" value="Request" update="form" icon="ui-icon-check" />
-			</h:form>
-			
+			<h3>No any Leave Request from Employee </h3>
 		</ui:define>
 	</ui:composition>
 </h:body>

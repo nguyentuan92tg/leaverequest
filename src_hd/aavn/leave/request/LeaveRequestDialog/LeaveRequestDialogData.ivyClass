@@ -4,3 +4,5 @@ leaveRequest aavn.leave.request.LeaveRequest #field
 leaveRequest PERSISTENT #fieldModifier
 accountHolder aavn.leave.request.AccountHolder #field
 accountHolder PERSISTENT #fieldModifier
+taskId String #field
+taskId PERSISTENT #fieldModifier

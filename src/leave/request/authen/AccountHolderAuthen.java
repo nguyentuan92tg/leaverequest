@@ -1,6 +1,7 @@
 package leave.request.authen;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import ch.ivyteam.ivy.environment.Ivy;
 
@@ -29,6 +30,12 @@ public class AccountHolderAuthen {
 
 	public static Boolean validate(String userName, String password) {
 		return login(userName, password) && hasAcessPermissonLeaveRequest();
+	}
+	
+	
+	public static void main(String[] args) {
+		AccountHolderAuthen account = null;
+		System.out.println(Optional.ofNullable(account));
 	}
 
 }

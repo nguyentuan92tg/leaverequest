@@ -21,7 +21,7 @@ public class FutureDate implements Validator {
 		LocalDate givenDate = LocalDate.parse(dateString, formatter);
 		LocalDate now = LocalDate.now();
 		if (givenDate.isBefore(now)) {
-			FacesMessage errorMesasge = new FacesMessage(Ivy.cms().co("/system/validation/mandatoryerrormessage"));
+			FacesMessage errorMesasge = new FacesMessage(Ivy.cms().co(""));
 			errorMesasge.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(errorMesasge);
 		}

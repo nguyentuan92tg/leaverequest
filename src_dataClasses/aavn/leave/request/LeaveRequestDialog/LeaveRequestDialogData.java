@@ -7,7 +7,7 @@ package aavn.leave.request.LeaveRequestDialog;
 public class LeaveRequestDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -6012115958392355469L;
+  private static final long serialVersionUID = -5310817726805331213L;
 
   private aavn.leave.request.LeaveRequest leaveRequest;
 
@@ -47,6 +47,26 @@ public class LeaveRequestDialogData extends ch.ivyteam.ivy.scripting.objects.Com
   public void setAccountHolder(aavn.leave.request.AccountHolder _accountHolder)
   {
     accountHolder = _accountHolder;
+  }
+
+  private java.lang.String taskId;
+
+  /**
+   * Gets the field taskId.
+   * @return the value of the field taskId; may be null.
+   */
+  public java.lang.String getTaskId()
+  {
+    return taskId;
+  }
+
+  /**
+   * Sets the field taskId.
+   * @param _taskId the new value of the field taskId.
+   */
+  public void setTaskId(java.lang.String _taskId)
+  {
+    taskId = _taskId;
   }
 
 }

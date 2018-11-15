@@ -19,6 +19,10 @@ Ls0 @RichDialogProcessEnd f1 '' #zField
 Ls0 @PushWFArc f2 '' #zField
 Ls0 @RichDialogProcessStart f3 '' #zField
 Ls0 @RichDialogEnd f4 '' #zField
+Ls0 @GridStep f23 '' #zField
+Ls0 @GridStep f10 '' #zField
+Ls0 @PushWFArc f9 '' #zField
+Ls0 @PushWFArc f6 '' #zField
 Ls0 @PushWFArc f5 '' #zField
 >Proto Ls0 Ls0 LeaveRequestDialogProcess #zField
 Ls0 f0 guid 162CD55BCCA2DDDC #txt
@@ -57,25 +61,74 @@ Ls0 f3 actionTable 'out=in;
 Ls0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>close</name>
-        <nameStyle>5,5,7
+        <name>request</name>
+        <nameStyle>7,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f3 83 147 26 26 -15 15 #rect
+Ls0 f3 83 147 26 26 -21 15 #rect
 Ls0 f3 @|RichDialogProcessStartIcon #fIcon
 Ls0 f4 type aavn.leave.request.LeaveRequestDialog.LeaveRequestDialogData #txt
 Ls0 f4 guid 162CD55BCD732526 #txt
-Ls0 f4 211 147 26 26 0 12 #rect
+Ls0 f4 734 147 26 26 0 12 #rect
 Ls0 f4 @|RichDialogEndIcon #fIcon
+Ls0 f23 actionDecl 'aavn.leave.request.LeaveRequestDialog.LeaveRequestDialogData out;
+' #txt
+Ls0 f23 actionTable 'out=in;
+' #txt
+Ls0 f23 actionCode ivy.log.info(in.leaveRequest.style); #txt
+Ls0 f23 type aavn.leave.request.LeaveRequestDialog.LeaveRequestDialogData #txt
+Ls0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Print out infor request</name>
+        <nameStyle>23,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f23 211 138 128 44 -58 -8 #rect
+Ls0 f23 @|StepIcon #fIcon
+Ls0 f10 actionDecl 'aavn.leave.request.LeaveRequestDialog.LeaveRequestDialogData out;
+' #txt
+Ls0 f10 actionTable 'out=in;
+' #txt
+Ls0 f10 actionCode 'import leave.request.services.TaskQueryService;
+import leave.request.services.LeaveRequestRepoService;
+in.leaveRequest.setFullName(ivy.session.getWorkflowContext().getSecurityContext().getCurrentSession().getSessionUser().getFullName());
+in.leaveRequest.setEmail(ivy.session.getWorkflowContext().getSecurityContext().getCurrentSession().getSessionUser().getEMailAddress());
+in.leaveRequest.requestId = LeaveRequestRepoService.save(in.leaveRequest);
+in.taskId = TaskQueryService.getTask(in.leaveRequest.requestId);
+ivy.log.info(in.taskId);' #txt
+Ls0 f10 security system #txt
+Ls0 f10 type aavn.leave.request.LeaveRequestDialog.LeaveRequestDialogData #txt
+Ls0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Save Request Information</name>
+        <nameStyle>24,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f10 459 138 160 44 -71 -8 #rect
+Ls0 f10 @|StepIcon #fIcon
+Ls0 f9 expr out #txt
+Ls0 f9 339 160 459 160 #arcP
+Ls0 f6 expr out #txt
+Ls0 f6 109 160 211 160 #arcP
 Ls0 f5 expr out #txt
-Ls0 f5 109 160 211 160 #arcP
+Ls0 f5 619 160 734 160 #arcP
 >Proto Ls0 .type aavn.leave.request.LeaveRequestDialog.LeaveRequestDialogData #txt
 >Proto Ls0 .processKind HTML_DIALOG #txt
 >Proto Ls0 -8 -8 16 16 16 26 #rect
 >Proto Ls0 '' #fIcon
 Ls0 f0 mainOut f2 tail #connect
 Ls0 f2 head f1 mainIn #connect
-Ls0 f3 mainOut f5 tail #connect
+Ls0 f23 mainOut f9 tail #connect
+Ls0 f9 head f10 mainIn #connect
+Ls0 f3 mainOut f6 tail #connect
+Ls0 f6 head f23 mainIn #connect
+Ls0 f10 mainOut f5 tail #connect
 Ls0 f5 head f4 mainIn #connect
